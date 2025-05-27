@@ -797,3 +797,116 @@ footer {
     .article-header h1 { font-size: 2rem; }
     .blog-article-full { padding: 1.5rem; }
 }
+
+/* Blog Overview Page Styles (blog.html) */
+.blog-overview-section {
+    padding: 8rem 0 4rem; /* Mehr Padding oben wegen fixed Navbar */
+}
+
+.blog-overview-section .page-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+.blog-overview-section .page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+.blog-list-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Einspaltig für die Liste */
+    gap: 3rem;
+}
+
+.blog-list-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Bild links, Text rechts */
+    gap: 2rem;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    align-items: flex-start; /* Vertikale Ausrichtung oben */
+}
+
+.blog-list-item-image img {
+    width: 100%;
+    height: auto; /* Höhe automatisch anpassen */
+    max-height: 250px; /* Maximale Höhe für Konsistenz */
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.blog-list-item-content h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.blog-list-item-content h2 a {
+    color: var(--primary-color);
+}
+.blog-list-item-content h2 a:hover {
+    color: var(--accent-color);
+}
+
+.blog-list-item-meta {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+.blog-list-item-meta .date {
+    /* display: block; */ /* Falls Datum allein stehen soll */
+}
+
+.blog-list-item-excerpt {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.btn-small { /* Kleinere Button-Variante */
+    padding: 0.6em 1.2em;
+    font-size: 0.9rem;
+}
+
+
+/* Responsive Anpassungen für Blog Overview */
+@media (max-width: 768px) {
+    .blog-list-item {
+        grid-template-columns: 1fr; /* Bild über Text auf kleinen Screens */
+        gap: 1.5rem;
+    }
+    .blog-list-item-image img {
+        max-height: 200px;
+    }
+    .blog-list-item-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Optional: Pagination Styles (falls du es implementierst) */
+.pagination {
+    margin-top: 3rem;
+    text-align: center;
+}
+.pagination .page-number, .pagination .next-page, .pagination .prev-page {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0 0.2em;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+}
+.pagination .page-number:hover, .pagination .next-page:hover, .pagination .prev-page:hover,
+.pagination .page-number.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}

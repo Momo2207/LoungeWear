@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unser Journal - Alle Artikel - Blueberry Moon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo"><span class="brand-name-js">Blueberry Moon</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html#shop" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="index.html#our-story" class="nav-link">Unsere Story</a></li>
+                    <li class="nav-item"><a href="index.html#sustainability" class="nav-link">Nachhaltigkeit</a></li>
+                    <li class="nav-item"><a href="index.html#journal" class="nav-link">Journal</a></li> <!-- Link zur Homepage Journal Section -->
+                    <li class="nav-item"><a href="blog.html" class="nav-link active">Alle Artikel</a></li> <!-- Aktiver Link -->
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-overview-section">
+            <div class="container">
+                <h1 class="page-title">Unser Journal</h1>
+                <p class="page-subtitle">Entdecke alle unsere Gedanken, Inspirationen und Geschichten rund um <span class="brand-name-js">Blueberry Moon</span>, Komfort und bewussten Lebensstil.</p>
+                
+                <div class="blog-list-container" id="blogListContainer">
+                    <!-- Artikel werden hier per JavaScript eingefügt -->
+                    <p class="loading-journal">Lade Artikel...</p>
+                </div>
+
+                <!-- Optional: Pagination, falls du sehr viele Artikel hast (komplexer) -->
+                <!-- 
+                <nav class="pagination">
+                    <a href="#" class="page-number active">1</a>
+                    <a href="#" class="page-number">2</a>
+                    <a href="#" class="page-number">3</a>
+                    <a href="#" class="next-page">»</a>
+                </nav> 
+                -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <!-- Kopiere den Footer von index.html hierher -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><span class="brand-name-js">Blueberry Moon</span></h4>
+                    <p>Loungewear für moderne Frauen, die Wert auf Design, Komfort und Nachhaltigkeit legen.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#our-story">Unsere Story</a></li>
+                        <li><a href="index.html#sustainability">Nachhaltigkeit</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p>Email: <a href="mailto:hello@blueberrymoon.com">hello@<span class="brand-domain-js">blueberrymoon.com</span></a></p>
+                    <p>Folge uns:</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                        <a href="#" aria-label="Pinterest"><img src="images/icon-pinterest.svg" alt="Pinterest"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> <span class="brand-name-js">Blueberry Moon</span>. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
