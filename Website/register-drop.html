@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierung Erster Drop - Blueberry Moon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo"><span class="brand-name-js">Blueberry Moon</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html#shop" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="index.html#our-story" class="nav-link">Unsere Story</a></li>
+                    <li class="nav-item"><a href="index.html#sustainability" class="nav-link">Nachhaltigkeit</a></li>
+                    <li class="nav-item"><a href="index.html#journal" class="nav-link">Journal</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registration-page-section">
+            <div class="container">
+                <div class="registration-content">
+                    <div class="registration-text">
+                        <h1 class="page-title">Willkommen zum ersten <span class="brand-name-js">Blueberry Moon</span> Drop!</h1>
+                        <p>Wir können es kaum erwarten, dir unsere erste Kollektion zu präsentieren – eine liebevolle Auswahl an Loungewear, die Ästhetik, Komfort und Nachhaltigkeit vereint. Jedes Stück wurde mit Bedacht entworfen, um deine Momente der Ruhe und Selbstfürsorge zu verschönern.</p>
+                        <p>Als registrierte VIP erhältst du:</p>
+                        <ul>
+                            <li>Exklusiven Vorabzugang vor dem offiziellen Launch.</li>
+                            <li>Einen besonderen Early-Bird-Rabatt.</li>
+                            <li>Sneak Peeks und Hintergrundgeschichten zur Kollektion.</li>
+                        </ul>
+                        <p>Trage dich einfach in das Formular ein und sei dabei, wenn <span class="brand-name-js">Blueberry Moon</span> seine Pforten öffnet.</p>
+                        
+                        <button id="openSizeChartBtn" class="btn btn-outline">Größentabelle anzeigen</button>
+                    </div>
+
+                    <div class="registration-form-container">
+                        <h2>Registriere dich hier:</h2>
+                        <form id="dropRegistrationForm">
+                            <div class="form-group">
+                                <label for="firstName">Vorname:</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail-Adresse:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredSize">Bevorzugte Größe (optional):</label>
+                                <select id="preferredSize" name="preferredSize">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="dataPrivacy" name="dataPrivacy" required>
+                                <label for="dataPrivacy" class="checkbox-label">Ich stimme der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Jetzt registrieren</button>
+                        </form>
+                        <p id="form-message" class="form-message"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Size Chart Modal -->
+        <div id="sizeChartModal" class="modal">
+            <div class="modal-content">
+                <!-- <span class="close-modal-btn">×</span> -->
+<img src="images/icon-close.svg" alt="Schließen" class="close-modal-btn-icon close-modal-btn"> <!--  Klasse close-modal-btn hinzugefügt -->
+                <!-- Alternative: <img src="images/icon-close.svg" alt="Schließen" class="close-modal-btn-icon"> -->
+                <h2>Größentabelle</h2>
+                <p>Bitte beachte, dass dies eine allgemeine Größentabelle ist. Spezifische Maße können je nach Produkt variieren.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Größe</th>
+                            <th>Brustumfang (cm)</th>
+                            <th>Taillenumfang (cm)</th>
+                            <th>Hüftumfang (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XS (34)</td>
+                            <td>80-84</td>
+                            <td>62-66</td>
+                            <td>88-92</td>
+                        </tr>
+                        <tr>
+                            <td>S (36/38)</td>
+                            <td>85-89</td>
+                            <td>67-71</td>
+                            <td>93-97</td>
+                        </tr>
+                        <tr>
+                            <td>M (40/42)</td>
+                            <td>90-94</td>
+                            <td>72-76</td>
+                            <td>98-102</td>
+                        </tr>
+                        <tr>
+                            <td>L (44)</td>
+                            <td>95-101</td>
+                            <td>77-83</td>
+                            <td>103-109</td>
+                        </tr>
+                        <tr>
+                            <td>XL (46/48)</td>
+                            <td>102-108</td>
+                            <td>84-90</td>
+                            <td>110-116</td>
+                        </tr>
+                        <tr>
+                            <td>XXL (50)</td>
+                            <td>109-115</td>
+                            <td>91-97</td>
+                            <td>117-123</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="modal-note">Tipp: Miss dich an der stärksten Stelle deiner Brust, der schmalsten Stelle deiner Taille und der breitesten Stelle deiner Hüfte.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <!-- ... (Kopiere den Footer von index.html hierher) ... -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><span class="brand-name-js">Blueberry Moon</span></h4>
+                    <p>Loungewear für moderne Frauen, die Wert auf Design, Komfort und Nachhaltigkeit legen.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#our-story">Unsere Story</a></li>
+                        <li><a href="index.html#sustainability">Nachhaltigkeit</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p>Email: <a href="mailto:hello@blueberrymoon.com">hello@<span class="brand-domain-js">blueberrymoon.com</span></a></p>
+                    <p>Folge uns:</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                        <a href="#" aria-label="Pinterest"><img src="images/icon-pinterest.svg" alt="Pinterest"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> <span class="brand-name-js">Blueberry Moon</span>. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
