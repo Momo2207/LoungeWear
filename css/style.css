@@ -195,7 +195,7 @@ ul {
 
 /* Hero Section */
 .hero-section {
-    background: url('../images/hero-banner.jpg') no-repeat center center/cover;
+    background: url('.../images/hero-banner.jpg') no-repeat center center/cover;
     color: var(--white);
     height: 85vh;
     display: flex;
@@ -909,4 +909,159 @@ footer {
     background-color: var(--accent-color);
     color: var(--primary-color);
     border-color: var(--accent-color);
+}
+
+/* Shop Overview Page Styles (shop.html) */
+.shop-overview-section {
+    padding: 8rem 0 4rem; /* Mehr Padding oben wegen fixed Navbar */
+}
+
+.shop-overview-section .page-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+.shop-overview-section .page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Optional: Filter Bar Styles */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.filter-bar select {
+    padding: 0.6em 1em;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-primary);
+    margin-left: 1rem; /* Abstand zwischen Selects */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a0aec0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8em center;
+    background-size: 0.8em;
+    padding-right: 2em;
+    appearance: none;
+}
+.filter-bar select:first-child {
+    margin-left: 0;
+}
+
+
+.product-list-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Wie auf der Homepage */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Etwas breiter für mehr Infos */
+    gap: 2rem; /* Oder 2.5rem für mehr Abstand */
+}
+
+/* Wiederverwendung und Anpassung der .product-card Stile oder eine neue Klasse */
+.product-card-list-item {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stellt sicher, dass der Button unten ist, wenn Infos unterschiedlich lang */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.product-card-list-item .product-image-link img {
+    width: 100%;
+    height: 320px; /* Konsistente Bildhöhe */
+    object-fit: cover;
+    display: block; /* Verhindert unerwünschten Leerraum unter dem Bild */
+}
+
+.product-card-list-item .product-info {
+    padding: 1.5rem;
+    text-align: center; /* Oder linksbündig, je nach Präferenz */
+    flex-grow: 1; /* Damit der Info-Bereich wächst und Button unten bleibt */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-list-item .product-info h3 {
+    font-size: 1.4rem; /* Etwas größer als auf Homepage-Teaser */
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+}
+.product-card-list-item .product-info h3 a {
+    color: var(--primary-color);
+}
+.product-card-list-item .product-info h3 a:hover {
+    color: var(--accent-color);
+}
+
+.product-card-list-item .product-category {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+}
+
+.product-card-list-item .product-short-desc {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Beschreibung füllt verfügbaren Platz */
+    min-height: 50px; /* Stellt sicher, dass Karten ähnliche Höhe haben, auch wenn Text kürzer */
+}
+
+
+.product-card-list-item .price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1.2rem;
+}
+
+.product-card-list-item .btn {
+    /* margin-top: auto; Stellt sicher, dass Button am Ende des flex containers ist, wenn product-info flex-grow hat */
+}
+
+.loading-products {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--secondary-color);
+    padding: 2rem;
+}
+
+/* Responsive Anpassungen für Shop Overview */
+@media (max-width: 992px) {
+    .product-list-container {
+        /* grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); */
+    }
+}
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .filter-bar select {
+        width: 100%;
+        margin-left: 0;
+    }
+    .product-list-container {
+        grid-template-columns: 1fr; /* Einspaltig auf sehr kleinen Screens */
+    }
+     .product-card-list-item .product-image-link img {
+        height: 280px;
+    }
 }

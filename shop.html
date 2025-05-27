@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsere Kollektion - Alle Produkte - Blueberry Moon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo"><span class="brand-name-js">Blueberry Moon</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="shop.html" class="nav-link active">Shop</a></li> <!-- Aktiver Link -->
+                    <li class="nav-item"><a href="index.html#our-story" class="nav-link">Unsere Story</a></li>
+                    <li class="nav-item"><a href="index.html#sustainability" class="nav-link">Nachhaltigkeit</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shop-overview-section">
+            <div class="container">
+                <h1 class="page-title">Unsere Kollektion</h1>
+                <p class="page-subtitle">Entdecke unsere sorgfältig kuratierte Auswahl an Loungewear, die Komfort und Stil vereint.</p>
+                
+                <!-- Optional: Filter Controls -->
+                <!-- 
+                <div class="filter-bar">
+                    <select id="categoryFilter">
+                        <option value="all">Alle Kategorien</option>
+                        <option value="Sets">Sets</option>
+                        <option value="Nachthemden">Nachthemden</option>
+                        <option value="Morgenmäntel">Morgenmäntel</option>
+                        <option value="Einzelteile">Einzelteile</option>
+                    </select>
+                    <select id="sortOrder">
+                        <option value="default">Standard</option>
+                        <option value="price-asc">Preis: Aufsteigend</option>
+                        <option value="price-desc">Preis: Absteigend</option>
+                        <option value="name-asc">Name: A-Z</option>
+                    </select>
+                </div>
+                -->
+
+                <div class="product-list-container" id="productListContainer">
+                    <!-- Produkte werden hier per JavaScript eingefügt -->
+                    <p class="loading-products">Lade Produkte...</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <!-- Kopiere den Footer von index.html hierher -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><span class="brand-name-js">Blueberry Moon</span></h4>
+                    <p>Loungewear für moderne Frauen, die Wert auf Design, Komfort und Nachhaltigkeit legen.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="index.html#our-story">Unsere Story</a></li>
+                        <li><a href="index.html#sustainability">Nachhaltigkeit</a></li>
+                        <li><a href="blog.html">Journal</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p>Email: <a href="mailto:hello@blueberrymoon.com">hello@<span class="brand-domain-js">blueberrymoon.com</span></a></p>
+                    <p>Folge uns:</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                        <a href="#" aria-label="Pinterest"><img src="images/icon-pinterest.svg" alt="Pinterest"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> <span class="brand-name-js">Blueberry Moon</span>. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

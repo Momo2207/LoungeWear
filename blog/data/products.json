@@ -1,0 +1,57 @@
+[
+  {
+    "id": "prod001",
+    "name": "Signature Lounge Set - Blueberry Dream",
+    "category": "Sets",
+    "price": 109.00,
+    "image": "product-set-blueberry.jpg",
+    "shortDescription": "Unser ikonisches Set aus superweichem Modal für ultimative Entspannung.",
+    "colors": ["Blueberry", "Soft Grey"],
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "detailsPage": "product-signature-set-blueberry.html"
+  },
+  {
+    "id": "prod002",
+    "name": "Elegantes Slipdress - Moonlit Silk",
+    "category": "Nachthemden",
+    "price": 79.00,
+    "image": "product-slipdress-moonlit.jpg",
+    "shortDescription": "Fließendes Slipdress aus Bambus-Satin-Mix mit zarten Details.",
+    "colors": ["Moonlit Silver", "Dusty Rose"],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "detailsPage": "product-slipdress-moonlit.html"
+  },
+  {
+    "id": "prod003",
+    "name": "Cozy Robe - Morning Dew",
+    "category": "Morgenmäntel",
+    "price": 99.00,
+    "image": "product-robe-morningdew.jpg",
+    "shortDescription": "Leichter Morgenmantel aus Bio-Baumwolle für den perfekten Start in den Tag.",
+    "colors": ["Oatmeal", "Light Grey"],
+    "sizes": ["S/M", "L/XL"],
+    "detailsPage": "product-robe-morningdew.html"
+  },
+  {
+    "id": "prod004",
+    "name": "Lounge Pants - Midnight Blue",
+    "category": "Einzelteile",
+    "price": 59.00,
+    "image": "product-pants-midnight.jpg",
+    "shortDescription": "Bequeme Lounge-Hose mit weitem Bein und elastischem Bund.",
+    "colors": ["Midnight Blue"],
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "detailsPage": "product-pants-midnight.html"
+  },
+  {
+    "id": "prod005",
+    "name": "Button-Up Shirt - Cloud White",
+    "category": "Einzelteile",
+    "price": 69.00,
+    "image": "product-shirt-cloud.jpg",
+    "shortDescription": "Locker geschnittenes Hemd, perfekt kombinierbar oder als Teil eines Sets.",
+    "colors": ["Cloud White"],
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "detailsPage": "product-shirt-cloud.html"
+  }
+]

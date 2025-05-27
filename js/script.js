@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.title = `Registrierung Erster Drop - ${brandName}`;
     } else if (pageTitle.includes("Unser Journal - Alle Artikel")) { // Blog overview page
         document.title = `Unser Journal - Alle Artikel - ${brandName}`;
+    } else if (pageTitle.includes("Unsere Kollektion - Alle Produkte")) { // Shop overview page
+        document.title = `Unsere Kollektion - Alle Produkte - ${brandName}`;
     }
     // Individual article page titles are typically set in their respective HTML templates.
 
@@ -80,17 +82,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navbar active link highlighting
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
-    const currentPath = window.location.pathname.split("/").pop() || 'index.html'; // Gets file like "blog.html" or defaults to "index.html" for root
-
+    // Get the current file name or default to 'index.html' for root path
+    let currentPath = window.location.pathname.split("/").pop();
+    if (currentPath === "" || currentPath === "/") { // If root path
+        currentPath = 'index.html';
+    }
+    
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
-        const linkPath = linkHref.split("/").pop().split("#")[0] || 'index.html'; // Get file name from link, default to index.html for root links like "/"
+        // Get the file name from the link, default to 'index.html' for root or empty hrefs
+        let linkPath = linkHref.split("/").pop().split("#")[0];
+        if (linkPath === "" && (linkHref === "/" || linkHref === "index.html")) {
+            linkPath = 'index.html';
+        }
 
-        // Remove active class from all links first to ensure only one is active for full page links
+        // Remove active class from all first to ensure clean state for full page links
+        // link.classList.remove('active'); // Let scroll logic handle homepage section active states
+
         if (linkPath === currentPath) {
-             // link.classList.add('active'); // This is now handled by the scroll logic for homepage, and CSS for direct page match
-        } else {
-            // link.classList.remove('active');
+            // For direct page matches (like blog.html, shop.html), add 'active'
+            // For index.html, the scroll logic will handle section-specific active states
+            if (currentPath !== 'index.html') {
+                link.classList.add('active');
+            }
         }
     });
     
@@ -105,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
         
         sections.forEach(section => {
-            // Adjust offset for better accuracy; navbarHeight and a bit more
             const sectionTop = section.offsetTop - navbarHeight - 50; 
             if (pageYOffset >= sectionTop) {
                 currentSectionId = section.getAttribute('id');
@@ -114,9 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            // Only apply active state to homepage section links (e.g., #shop, index.html#shop)
             if (linkHref.startsWith('#') || linkHref.startsWith('index.html#')) {
-                link.classList.remove('active'); // Remove from all section links first
+                link.classList.remove('active'); 
                 if (linkHref.split('#')[1] === currentSectionId) {
                     link.classList.add('active');
                 }
@@ -126,27 +138,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (isHomepage && sections.length > 0 && navLinks.length > 0) {
         window.addEventListener('scroll', changeNavOnScroll);
-        changeNavOnScroll(); // Initial check on page load
+        changeNavOnScroll(); 
     }
 
 
     // --- Size Chart Modal Logic (for register-drop.html) ---
     const sizeChartModal = document.getElementById("sizeChartModal");
     const openSizeChartBtn = document.getElementById("openSizeChartBtn");
-    const closeModalBtns = document.querySelectorAll(".close-modal-btn"); // Handles multiple close buttons (text or SVG)
+    const closeModalBtns = document.querySelectorAll(".close-modal-btn"); 
 
-    if (openSizeChartBtn && sizeChartModal) { // Check if these elements exist on the current page
+    if (openSizeChartBtn && sizeChartModal) { 
         openSizeChartBtn.onclick = function() {
             sizeChartModal.style.display = "block";
         }
-
         closeModalBtns.forEach(btn => {
             btn.onclick = function() {
                 sizeChartModal.style.display = "none";
             }
         });
-
-        // Close modal when clicking outside of the modal content
         window.onclick = function(event) {
             if (event.target == sizeChartModal) {
                 sizeChartModal.style.display = "none";
@@ -159,10 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const registrationForm = document.getElementById('dropRegistrationForm');
     const formMessage = document.getElementById('form-message');
 
-    if (registrationForm && formMessage) { // Check if these elements exist
+    if (registrationForm && formMessage) { 
         registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual form submission for this demo
-            
+            e.preventDefault(); 
             const firstName = document.getElementById('firstName').value;
             const email = document.getElementById('email').value;
             const dataPrivacy = document.getElementById('dataPrivacy').checked;
@@ -172,23 +180,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 formMessage.className = 'form-message error';
                 return;
             }
-            
-            // Simulate form submission
             formMessage.textContent = `Danke, ${firstName}! Du bist für den Drop registriert. Wir halten dich auf dem Laufenden.`;
             formMessage.className = 'form-message success';
-            registrationForm.reset(); // Clear the form
+            registrationForm.reset(); 
         });
     }
 
     // --- Journal Articles ---
-    const articlesJsonPath = 'blog/data/articles.json'; // Path relative to the HTML file's location
+    const articlesJsonPath = 'blog/data/articles.json'; 
     const articlesBasePath = 'blog/articles/'; 
-    const imagesBasePath = 'images/blog/'; 
+    const blogImagesBasePath = 'images/blog/'; 
 
     // Load Latest Journal Articles on Homepage
     const journalGridHome = document.getElementById('journalGridHome');
     async function loadLatestJournalArticles() {
-        if (!journalGridHome) return; // Only run if the homepage journal grid exists
+        if (!journalGridHome) return; 
 
         try {
             const response = await fetch(articlesJsonPath);
@@ -196,21 +202,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`HTTP error! status: ${response.status}, trying to fetch ${articlesJsonPath}`);
             }
             const articles = await response.json();
-            
-            // Sort by ID descending (newest first assuming higher ID is newer)
             articles.sort((a, b) => b.id - a.id); 
-            
-            const articlesToShow = articles.slice(0, 2); // Show the 2 newest articles
+            const articlesToShow = articles.slice(0, 2); 
 
             if (articlesToShow.length > 0) {
-                journalGridHome.innerHTML = ''; // Clear loading text or old articles
+                journalGridHome.innerHTML = ''; 
                 articlesToShow.forEach(article => {
                     const postElement = document.createElement('article');
                     postElement.classList.add('journal-post');
-                    
-                    const imageUrl = `${imagesBasePath}${article.image}`; // Path relative to HTML root
-                    const articleUrl = `${articlesBasePath}${article.fileName}`; // Path relative to HTML root
-
+                    const imageUrl = `${blogImagesBasePath}${article.image}`; 
+                    const articleUrl = `${articlesBasePath}${article.fileName}`; 
                     postElement.innerHTML = `
                         <a href="${articleUrl}" class="post-thumbnail-link">
                             <img src="${imageUrl}" alt="${article.title}" class="post-thumbnail">
@@ -229,12 +230,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } catch (error) {
             console.error("Konnte Journal-Artikel nicht laden (Homepage):", error);
-            if (journalGridHome) { // Check again in case of error during processing
+            if (journalGridHome) { 
                  journalGridHome.innerHTML = '<p>Fehler beim Laden der Artikel. Bitte überprüfe die Konsole für Details.</p>';
             }
         }
     }
-    // Call the function if on the homepage
     if (journalGridHome) {
         loadLatestJournalArticles();
     }
@@ -242,27 +242,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load All Journal Articles on blog.html
     const blogListContainer = document.getElementById('blogListContainer');
     async function loadAllJournalArticles() {
-        if (!blogListContainer) return; // Only run if the blog list container exists (on blog.html)
+        if (!blogListContainer) return; 
 
         try {
-            const response = await fetch(articlesJsonPath); // Same JSON path
+            const response = await fetch(articlesJsonPath); 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}, trying to fetch ${articlesJsonPath}`);
             }
             const articles = await response.json();
-
-            // Sort by ID descending (newest first)
             articles.sort((a, b) => b.id - a.id);
 
             if (articles.length > 0) {
-                blogListContainer.innerHTML = ''; // Clear loading text
+                blogListContainer.innerHTML = ''; 
                 articles.forEach(article => {
                     const articleElement = document.createElement('article');
                     articleElement.classList.add('blog-list-item'); 
-                    
-                    const imageUrl = `${imagesBasePath}${article.image}`; // Path relative to HTML root
-                    const articleUrl = `${articlesBasePath}${article.fileName}`; // Path relative to HTML root
-
+                    const imageUrl = `${blogImagesBasePath}${article.image}`; 
+                    const articleUrl = `${articlesBasePath}${article.fileName}`; 
                     articleElement.innerHTML = `
                         <div class="blog-list-item-image">
                             <a href="${articleUrl}">
@@ -283,18 +279,73 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 blogListContainer.innerHTML = '<p>Momentan sind keine Artikel verfügbar.</p>';
             }
-
         } catch (error) {
             console.error("Konnte alle Journal-Artikel nicht laden (Blog-Seite):", error);
-            if (blogListContainer) { // Check again
+            if (blogListContainer) { 
                 blogListContainer.innerHTML = '<p>Fehler beim Laden der Artikel. Bitte versuche es später erneut.</p>';
             }
         }
     }
-
-    // Call the function if on blog.html
     if (blogListContainer) {
         loadAllJournalArticles();
+    }
+
+    // --- Shop Products ---
+    const productsJsonPath = 'blog/data/products.json'; // Assuming products.json is in the same data folder as articles.json
+                                                     // Change to 'data/products.json' if you created a separate data folder in root
+    const productImagesBasePath = 'images/products/'; 
+    const productListContainer = document.getElementById('productListContainer');
+
+    async function loadAllProducts() {
+        if (!productListContainer) return; 
+
+        try {
+            const response = await fetch(productsJsonPath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}, trying to fetch ${productsJsonPath}`);
+            }
+            const products = await response.json();
+
+            // Optional: Default sorting if needed, e.g., by name or a 'featured' flag
+            // products.sort((a, b) => a.name.localeCompare(b.name));
+
+            if (products.length > 0) {
+                productListContainer.innerHTML = ''; 
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card-list-item'); 
+
+                    const imageUrl = `${productImagesBasePath}${product.image}`;
+                    // Link to the future detail page - ensure you create a 'products' subfolder for these HTML files
+                    const productDetailUrl = `products/${product.detailsPage}`; 
+
+                    productCard.innerHTML = `
+                        <a href="${productDetailUrl}" class="product-image-link">
+                            <img src="${imageUrl}" alt="${product.name}">
+                        </a>
+                        <div class="product-info">
+                            <h3><a href="${productDetailUrl}">${product.name}</a></h3>
+                            <p class="product-category">${product.category}</p>
+                            <p class="product-short-desc">${product.shortDescription}</p>
+                            <p class="price">${product.price.toFixed(2).replace('.', ',')} €</p>
+                            <a href="${productDetailUrl}" class="btn btn-secondary">Details ansehen</a>
+                            <!-- <button class="btn btn-primary add-to-cart-btn" data-product-id="${product.id}">In den Warenkorb</button> -->
+                        </div>
+                    `;
+                    productListContainer.appendChild(productCard);
+                });
+            } else {
+                productListContainer.innerHTML = '<p>Momentan sind keine Produkte verfügbar.</p>';
+            }
+        } catch (error) {
+            console.error("Konnte Produkte nicht laden (Shop-Seite):", error);
+            if (productListContainer) {
+                productListContainer.innerHTML = '<p>Fehler beim Laden der Produkte. Bitte versuche es später erneut.</p>';
+            }
+        }
+    }
+    if (productListContainer) {
+        loadAllProducts();
     }
 
 }); // End of DOMContentLoaded
