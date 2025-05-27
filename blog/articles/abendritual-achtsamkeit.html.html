@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Der Titel wird dynamisch gesetzt oder du passt ihn hier an -->
+    <title>{ARTICLE_TITLE} - Blueberry Moon Journal</title>
+    <link rel="stylesheet" href="../../css/style.css"> <!-- Pfad anpassen! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="../../index.html" class="nav-logo"><span class="brand-name-js">Blueberry Moon</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../../index.html#shop" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="../../index.html#our-story" class="nav-link">Unsere Story</a></li>
+                    <li class="nav-item"><a href="../../index.html#sustainability" class="nav-link">Nachhaltigkeit</a></li>
+                    <li class="nav-item"><a href="../../index.html#journal" class="nav-link">Journal</a></li>
+                    <li class="nav-item"><a href="../../index.html#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="article-page-section">
+            <div class="container">
+                <article class="blog-article-full">
+                    <header class="article-header">
+                        <!-- Titel und Bild können hier statisch sein oder du könntest sie auch dynamisch laden,
+                             aber für ein Template ist es einfacher, sie direkt in der kopierten Datei zu pflegen. -->
+                        <h1>{ARTICLE_TITLE}</h1>
+                        <p class="article-meta">Veröffentlicht am: <span class="article-date">{ARTICLE_DATE}</span> <!-- Optional: Autor --></p>
+                        <img src="../../images/blog/{ARTICLE_IMAGE_FILENAME}" alt="{ARTICLE_TITLE}" class="article-hero-image">
+                    </header>
+                    
+                    <div class="article-content-wrapper">
+                        {ARTICLE_CONTENT}
+                        <!-- Beispielhafter Inhalt:
+                        <p>Dies ist der erste Absatz deines wunderbaren Blog-Artikels. Hier erzählst du eine Geschichte, gibst Tipps oder teilst deine Gedanken.</p>
+                        <h2>Ein Untertitel für mehr Struktur</h2>
+                        <p>Weitere Details und Informationen folgen hier. Du kannst Bilder, Listen und Zitate einfügen, um den Artikel ansprechend zu gestalten.</p>
+                        <blockquote>
+                            "Ein inspirierendes Zitat, das zum Thema passt."
+                        </blockquote>
+                        <figure>
+                            <img src="../../images/blog/another-image.jpg" alt="Zusätzliches Bild im Artikel">
+                            <figcaption>Eine Bildunterschrift für das zusätzliche Bild.</figcaption>
+                        </figure>
+                        <p>Vergiss nicht, deine Leser zum Nachdenken anzuregen oder ihnen einen klaren Mehrwert zu bieten.</p>
+                        -->
+                    </div>
+
+                    <div class="article-navigation">
+                        <a href="../../index.html#journal" class="btn btn-outline">← Zurück zum Journal</a>
+                        <!-- Optional: Nächster/Vorheriger Artikel (komplexer zu implementieren) -->
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <!-- Kopiere den Footer von index.html hierher, achte auf korrekte Pfade zu ../../ -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><span class="brand-name-js">Blueberry Moon</span></h4>
+                    <p>Loungewear für moderne Frauen, die Wert auf Design, Komfort und Nachhaltigkeit legen.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html#shop">Shop</a></li>
+                        <li><a href="../../index.html#our-story">Unsere Story</a></li>
+                        <li><a href="../../index.html#sustainability">Nachhaltigkeit</a></li>
+                        <li><a href="../../agb.html">AGB</a></li> <!-- Pfad anpassen, falls diese im Hauptverzeichnis liegen -->
+                        <li><a href="../../datenschutz.html">Datenschutz</a></li>
+                        <li><a href="../../impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p>Email: <a href="mailto:hello@blueberrymoon.com">hello@<span class="brand-domain-js">blueberrymoon.com</span></a></p>
+                    <p>Folge uns:</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><img src="../../images/icon-instagram.svg" alt="Instagram"></a>
+                        <a href="#" aria-label="Pinterest"><img src="../../images/icon-pinterest.svg" alt="Pinterest"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> <span class="brand-name-js">Blueberry Moon</span>. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script> <!-- Pfad anpassen! -->
+</body>
+</html>
